@@ -18,3 +18,24 @@ go-postgres-mcp-gateway/
 ├── web/                      # React + Tailwind admin control plane
 ├── Dockerfile                # Multi-stage minimal production image
 └── go.mod                    # Go module dependencies
+```
+## Key Features
+Driver-Level Read-Only Enforcement: Executes queries inside SET TRANSACTION READ ONLY sessions using pgx connection pooling.
+
+SQL Guardrails: Parses incoming SQL statements to reject write operations, DDL commands, and multi-statement injections before they ever touch the database.
+
+Dynamic Schema Resources: Exposes postgres://schemas via MCP so AI agents understand table structures and foreign keys without hallucinating column names.
+
+PII Column Masking: Automatically redacts sensitive fields (e.g., password_hash, api_key, ssn) based on configurable rules.
+
+Enterprise Control Plane (Roadmap): React + PostgreSQL management UI for team RBAC, token metrics, and real-time query audit trails.
+
+## Tech Stack
+Core Gateway: Go (Golang), pgx PostgreSQL Driver, MCP Go SDK
+
+Control Plane UI: React, TypeScript, Tailwind CSS
+
+Database: PostgreSQL
+
+## License
+Released under the MIT License. Developed by Fahim Tech Studio.
