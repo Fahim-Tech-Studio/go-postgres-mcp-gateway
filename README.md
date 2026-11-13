@@ -1,6 +1,6 @@
 # Go PostgreSQL MCP Gateway
 
-A high-performance, security-first **Model Context Protocol (MCP)** server and proxy built in **Golang**, enabling AI agents (Claude, Cursor, and custom LLM workflows) to safely inspect schemas and run read-only queries against **PostgreSQL** databases.
+A high-performance, security-first **Model Context Protocol (MCP)** server, database proxy, and AST query firewall built in **Golang**. Designed for enterprise AI engineering teams using Claude, Cursor, and custom LLM workflows to safely inspect PostgreSQL schemas, execute read-only queries, and enforce automated PII masking.
 
 ## 🛡️ Security & Guardrail Architecture
 
