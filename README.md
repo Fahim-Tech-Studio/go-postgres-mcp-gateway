@@ -34,9 +34,8 @@ flowchart LR
     E -->|Redacted JSON| A
     F[web/ React + Tailwind Control Plane] -.->|RBAC, Metrics & Audit Trails| E
 
-### Repository Structure
-
 ```text
+### Repository Structure
 go-postgres-mcp-gateway/
 ├── cmd/
 │   └── server/main.go       # CLI entrypoint (Stdio & SSE/HTTP MCP transports)
