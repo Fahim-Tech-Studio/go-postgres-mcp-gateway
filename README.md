@@ -18,10 +18,11 @@ go-postgres-mcp-gateway/
 ├── web/                      # React + Tailwind admin control plane
 ├── Dockerfile                # Multi-stage minimal production image
 └── go.mod                    # Go module dependencies
+```
 [![Go CI](https://github.com/Fahim-Tech-Studio/go-postgres-mcp-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/Fahim-Tech-Studio/go-postgres-mcp-gateway/actions/workflows/ci.yml)
 [![Go Version](https://img.shields.io/badge/Go-1.22+-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-```
+
 ## Key Features
 Driver-Level Read-Only Enforcement: Executes queries inside SET TRANSACTION READ ONLY sessions using pgx connection pooling.
 
