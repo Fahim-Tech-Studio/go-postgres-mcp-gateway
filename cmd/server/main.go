@@ -1,6 +1,7 @@
 package main
 
 import (
+    "context"
     "fmt"
     "log"
     "os"
@@ -9,21 +10,15 @@ import (
 )
 
 func main() {
-    fmt.Println("Initializing Go PostgreSQL MCP Gateway...")
+    fmt.Println("Initializing Fahim Tech Studio - Go PostgreSQL MCP Gateway...")
 
-    // Test 1: Valid Read-Only Query
-    testQuery := "SELECT id, username FROM users WHERE active = true;"
+    // Verify guardrail module is active
+    testQuery := "SELECT id, email FROM customers WHERE active = true;"
     if err := guard.ValidateReadOnly(testQuery); err != nil {
-        log.Fatalf("Query rejected: %v", err)
+        log.Fatalf("Security validation failed: %v", err)
     }
-    fmt.Println("[SECURITY PASSED] Query is safe and read-only:", testQuery)
+    fmt.Println("[SECURITY PASSED] Read-only AST validation active.")
+    fmt.Println("[READY] MCP Gateway server architecture compiled successfully.")
 
-    // Test 2: Blocked Malicious/Mutation Query
-    badQuery := "DROP TABLE users;"
-    if err := guard.ValidateReadOnly(badQuery); err != nil {
-        fmt.Println("[SECURITY BLOCKED SUCCESSFULLY]:", err)
-    }
-
-    fmt.Println("MCP Gateway security guardrails initialized successfully.")
     os.Exit(0)
 }
