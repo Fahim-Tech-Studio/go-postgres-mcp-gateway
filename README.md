@@ -33,3 +33,18 @@ flowchart LR
     D -->|Raw Rows| E[internal/audit PII Masker]
     E -->|Redacted JSON| A
     F[web/ React + Tailwind Control Plane] -.->|RBAC, Metrics & Audit Trails| E
+
+### Repository Structure
+
+```text
+go-postgres-mcp-gateway/
+├── cmd/
+│   └── server/main.go       # CLI entrypoint (Stdio & SSE/HTTP MCP transports)
+├── internal/
+│   ├── mcp/                 # MCP protocol handlers (Tools & Resources)
+│   ├── guard/               # SQL AST validation (strict SELECT-only allowlist)
+│   ├── postgres/            # Read-only pgx connection pool & schema inspector
+│   └── audit/               # Structured query logging & PII column masking
+├── web/                     # React + Tailwind admin control plane
+├── Dockerfile               # Multi-stage minimal production image
+└── go.mod                   # Go module dependencies
